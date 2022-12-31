@@ -45,28 +45,23 @@ export const Reducer = (state, { type, payload }) => {
     case ACTIONS.CLEAR:
       return {};
     case ACTIONS.DELETE_DIGIT:
-      if (state.currOP) {
-        if (state.overrite) {
-          return {
-            ...state,
-            overrrite: false,
-            currOp: null,
-          };
-        }
-        if (state.currOp === null) {
-          return state;
-        }
-        if (state?.currOp?.length === 1) {
-          return { ...state, currOp: null };
-        }
-
+      if (state.overwrite) {
         return {
           ...state,
-          currOp: state.currOp.slice(0, -1),
+          overwrite: false,
+          currentOperand: null,
         };
-      } else {
-        return state;
       }
+      if (state.currOp == null) return state;
+      if (state.currOp.length === 1) {
+        return { ...state, currOp: null };
+      }
+
+      return {
+        ...state,
+        currOp: state.currOp.slice(0, -1),
+      };
+
     case ACTIONS.EVALUATE:
       if (
         state.operation === null ||
