@@ -10,10 +10,10 @@ export const Evaluate = ({ currOp, prevOp, operation }) => {
     case '-':
       computation = prev - curr;
       break;
-    case '*':
+    case '×':
       computation = prev * curr;
       break;
-    case '/':
+    case '÷':
       computation = prev / curr;
       break;
   }
