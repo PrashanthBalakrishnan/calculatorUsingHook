@@ -15,7 +15,6 @@ export const ACTIONS = {
 
 const App = () => {
   const [{ prevOp, currOp, operation }, dispatch] = useReducer(Reducer, {});
-  console.log(prevOp, currOp, operation);
 
   return (
     <div className="calculator-grid">
